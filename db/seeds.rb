@@ -7,13 +7,13 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
-
+puts 'cleaning database'
+Article.destroy_all
 puts 'creating 10 fake articles...'
 10.times do
-  article = Article.new(
+  Article.create(
     title: Faker::Lorem.word,
     content: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false)
   )
-  article.save!
 end
 puts 'finished!'
